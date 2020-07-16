@@ -1,0 +1,146 @@
+{
+    "responseCode": 200,
+    "message": "success",
+    "content": [
+        {
+            "id": "4651770164123746248",
+            "form_id": "201283790609054",
+            "ip": "82.77.78.214",
+            "created_at": "2020-05-13 07:03:36",
+            "status": "ACTIVE",
+            "new": "1",
+            "flag": "0",
+            "notes": "",
+            "updated_at": null,
+            "answers": {
+                "1": {
+                    "name": "usnPartner",
+                    "order": "1",
+                    "text": "USN Partner Recommendation Form",
+                    "type": "control_head"
+                },
+                "2": {
+                    "name": "submit2",
+                    "order": "7",
+                    "text": "Submit",
+                    "type": "control_button"
+                },
+                "3": {
+                    "name": "name",
+                    "order": "3",
+                    "text": "Company Name",
+                    "type": "control_textbox",
+                    "answer": "Test Companyu"
+                },
+                "4": {
+                    "name": "pname",
+                    "order": "4",
+                    "sublabels": "{\"prefix\":\"Prefix\",\"first\":\"First Name\",\"middle\":\"Middle Name\",\"last\":\"Last Name\",\"suffix\":\"Suffix\"}",
+                    "text": "Name",
+                    "type": "control_fullname",
+                    "answer": {
+                        "first": "Gigi ",
+                        "last": "Becali"
+                    },
+                    "prettyFormat": "Gigi  Becali"
+                },
+                "5": {
+                    "name": "pemail",
+                    "order": "5",
+                    "text": "Partner's email address",
+                    "type": "control_email",
+                    "answer": "gigi.becali@becali.ro"
+                },
+                "6": {
+                    "name": "geo",
+                    "order": "6",
+                    "text": "Partner's GEO",
+                    "type": "control_radio",
+                    "answer": "APAC"
+                },
+                "7": {
+                    "name": "emailuipath",
+                    "order": "2",
+                    "text": "UiPath Partner Account Manager email address",
+                    "type": "control_email",
+                    "answer": "ionut.macarin@uipath.com"
+                }
+            }
+        },
+        {
+            "id": "4651682914127283606",
+            "form_id": "201283790609054",
+            "ip": "82.77.78.214",
+            "created_at": "2020-05-13 04:38:11",
+            "status": "ACTIVE",
+            "new": "1",
+            "flag": "0",
+            "notes": "",
+            "updated_at": null,
+            "answers": {
+                "1": {
+                    "name": "usnPartner",
+                    "order": "1",
+                    "text": "USN Partner Recommendation Form",
+                    "type": "control_head"
+                },
+                "2": {
+                    "name": "submit2",
+                    "order": "7",
+                    "text": "Submit",
+                    "type": "control_button"
+                },
+                "3": {
+                    "name": "name",
+                    "order": "3",
+                    "text": "Company Name",
+                    "type": "control_textbox",
+                    "answer": "My Company"
+                },
+                "4": {
+                    "name": "pname",
+                    "order": "4",
+                    "sublabels": "{\"prefix\":\"Prefix\",\"first\":\"First Name\",\"middle\":\"Middle Name\",\"last\":\"Last Name\",\"suffix\":\"Suffix\"}",
+                    "text": "Name",
+                    "type": "control_fullname",
+                    "answer": {
+                        "first": "Ion",
+                        "last": "Maka"
+                    },
+                    "prettyFormat": "Ion Maka"
+                },
+                "5": {
+                    "name": "pemail",
+                    "order": "5",
+                    "text": "Partner's email address",
+                    "type": "control_email",
+                    "answer": "ionut.macarin@gmail.com"
+                },
+                "6": {
+                    "name": "geo",
+                    "order": "6",
+                    "text": "Partner's GEO",
+                    "type": "control_radio",
+                    "answer": "APAC"
+                },
+                "7": {
+                    "name": "emailuipath",
+                    "order": "2",
+                    "text": "UiPath Partner Account Manager email address",
+                    "type": "control_email"
+                }
+            }
+        }
+    ],
+    "duration": "15ms",
+    "resultSet": {
+        "offset": 0,
+        "limit": 20,
+        "orderby": "id",
+        "filter": {
+            "created_at:gt": "2013-01-01 00:00:00"
+        },
+        "count": 2
+    },
+    "limit-left": 49991
+}
