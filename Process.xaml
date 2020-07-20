@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1143,1404</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1199,675</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -61,9 +61,10 @@
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
       <AssemblyReference>UiPath.Database</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="510,1199" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="385,891" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="infraCandidates" />
       <Variable x:TypeArguments="sd:DataTable" Name="devCandidates" />
@@ -76,30 +77,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="468,55" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="468,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_2">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetNewFormSubmissions workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\GetNewFormSubmissions.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-          </ui:InvokeWorkflowFile>
-        </Sequence>
-      </ui:CommentOut.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:CommentOut>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetNewCandidates workflow" sap:VirtualizedContainerService.HintSize="468,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\GetNewCandidates.xaml">
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="343,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetNewCandidates workflow" sap:VirtualizedContainerService.HintSize="343,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\GetNewCandidates.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_infraDt">[infraCandidates]</OutArgument>
@@ -108,67 +87,57 @@
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_saDt">[saCandidates]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Sequence DisplayName="Add new Candidates in DB &amp; Send Hackerrank test" sap:VirtualizedContainerService.HintSize="468,707" sap2010:WorkflowViewState.IdRef="Sequence_3">
-      <Sequence.Variables>
-        <Variable x:TypeArguments="ui:DatabaseConnection" Name="myConnection" />
-      </Sequence.Variables>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:DatabaseConnect DatabaseConnection="[myConnection]" DisplayName="Connect" sap:VirtualizedContainerService.HintSize="426,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.SqlClient" ConnectionString="Data Source=proj-usn-sql-serv.database.windows.net;Initial Catalog=proj-usn-db;Persist Security Info=True;User ID=bogdan;Password=B3uqzDSy|V4.doY" />
-      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[devCandidates]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="426,454" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
-        <ui:ForEachRow.Body>
-          <ActivityAction x:TypeArguments="sd:DataRow">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="dev" />
-            </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,306" sap2010:WorkflowViewState.IdRef="Sequence_5">
-              <Sequence.Variables>
-                <Variable x:TypeArguments="x:String" Name="devId" />
-              </Sequence.Variables>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InsertNewCandidate RPA Dev" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\InsertNewCandidate.xaml">
-                <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">[myConnection]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_Name">[dev("First Name").ToString + " "+ dev("Last Name").ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_Email">[dev("Email Address").ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_PartnerId">[dev("partnerId").ToString]</InArgument>
-                  <OutArgument x:TypeArguments="x:String" x:Key="out_EmployeeId">[devId]</OutArgument>
-                </ui:InvokeWorkflowFile.Arguments>
-              </ui:InvokeWorkflowFile>
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SendHackerrankTest for RPA Dev" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\SendHackerrankTest.xaml">
-                <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_EmployeeId">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="devId" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:Int32" x:Key="in_EmployeePosition">
-                    <Literal x:TypeArguments="x:Int32" Value="4" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                    <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_FullName">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dev(&quot;First Name&quot;).ToString + &quot; &quot; + dev(&quot;Last Name&quot;).ToString" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_Email">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dev(&quot;Email Address&quot;).ToString" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">
-                    <mva:VisualBasicValue x:TypeArguments="ui:DatabaseConnection" ExpressionText="myConnection" />
-                  </InArgument>
-                </ui:InvokeWorkflowFile.Arguments>
-              </ui:InvokeWorkflowFile>
-            </Sequence>
-          </ActivityAction>
-        </ui:ForEachRow.Body>
-      </ui:ForEachRow>
-      <ui:DatabaseDisconnect DatabaseConnection="[myConnection]" DisplayName="Disconnect" sap:VirtualizedContainerService.HintSize="426,22" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
-    </Sequence>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DEV AddnewCandidatesinDBSendHackerranktest" sap:VirtualizedContainerService.HintSize="343,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="AddnewCandidatesinDBSendHackerranktest.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_Position">
+          <Literal x:TypeArguments="x:Int32" Value="4" />
+        </InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Candidates">
+          <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="devCandidates" />
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke INFRA AddnewCandidatesinDBSendHackerranktest workflow" sap:VirtualizedContainerService.HintSize="343,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="AddnewCandidatesinDBSendHackerranktest.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_Position">
+          <Literal x:TypeArguments="x:Int32" Value="7" />
+        </InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Candidates">
+          <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="infraCandidates" />
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SA AddnewCandidatesinDBSendHackerranktest workflow" sap:VirtualizedContainerService.HintSize="343,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="AddnewCandidatesinDBSendHackerranktest.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_Position">
+          <Literal x:TypeArguments="x:Int32" Value="5" />
+        </InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Candidates">
+          <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="saCandidates" />
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke BA AddnewCandidatesinDBSendHackerranktest workflow" sap:VirtualizedContainerService.HintSize="343,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="AddnewCandidatesinDBSendHackerranktest.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_Position">
+          <Literal x:TypeArguments="x:Int32" Value="6" />
+        </InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Candidates">
+          <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="baCandidates" />
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
   </Sequence>
 </Activity>

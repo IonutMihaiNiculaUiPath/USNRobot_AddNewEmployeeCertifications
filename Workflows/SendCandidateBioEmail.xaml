@@ -4,11 +4,12 @@
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_EmployeeId" Type="InArgument(x:String)" />
     <x:Property Name="in_Email" Type="InArgument(x:String)" />
+    <x:Property Name="in_Name" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1199,1378</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1199,1570</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>WriteCandidateBioEmail_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -36,7 +37,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="23">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -62,7 +63,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="WriteCandidateBioEmail" sap:VirtualizedContainerService.HintSize="539,1213" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="WriteCandidateBioEmail" sap:VirtualizedContainerService.HintSize="539,1405" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="bioBody" />
       <Variable x:TypeArguments="x:String" Name="candidateBioFormId" />
@@ -73,6 +74,7 @@
       <Variable x:TypeArguments="x:String" Name="cc" />
       <Variable x:TypeArguments="x:String" Name="account" />
       <Variable x:TypeArguments="x:String" Name="emailBody" />
+      <Variable x:TypeArguments="x:String" Name="positionName" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -95,39 +97,99 @@
         <InArgument x:TypeArguments="x:String">[in_Config("CandidateBioEmailSubject").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_Position]" sap:VirtualizedContainerService.HintSize="497,310" sap2010:WorkflowViewState.IdRef="Switch`1_1">
-      <Assign x:Key="4" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
-        <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[candidateBioFormId]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[in_Config("JOTDevBioId").ToString]</InArgument>
-        </Assign.Value>
-      </Assign>
-      <Assign x:Key="5" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
-        <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[candidateBioFormId]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[in_Config("JOTSaBioId").ToString]</InArgument>
-        </Assign.Value>
-      </Assign>
-      <Assign x:Key="6" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
-        <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[candidateBioFormId]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[in_Config("JOTBaBioId").ToString]</InArgument>
-        </Assign.Value>
-      </Assign>
-      <Assign x:Key="7" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
-        <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[candidateBioFormId]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[in_Config("JOTInfraBioId").ToString]</InArgument>
-        </Assign.Value>
-      </Assign>
+    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_Position]" sap:VirtualizedContainerService.HintSize="497,502" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <Sequence x:Key="4" sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[candidateBioFormId]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[in_Config("JOTDevBioId").ToString]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[positionName]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">RPA Developer Biography</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+      <Sequence x:Key="5" sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[candidateBioFormId]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[in_Config("JOTSaBioId").ToString]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[positionName]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">Solution Architect Biography</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+      <Sequence x:Key="6" sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[positionName]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">Business Analyst Biography</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[candidateBioFormId]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[in_Config("JOTBaBioId").ToString]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+      <Sequence x:Key="7" sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[candidateBioFormId]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[in_Config("JOTInfraBioId").ToString]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[positionName]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">Infrastructure Engineer Biography</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
     </Switch>
     <Assign DisplayName="Assign baBio" sap:VirtualizedContainerService.HintSize="497,60" sap2010:WorkflowViewState.IdRef="Assign_9">
       <Assign.To>
@@ -170,13 +232,13 @@
               <OutArgument x:TypeArguments="x:String">[emailBody]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[bioBody.replace("#Bio#","&lt;a href='"+bioUrl+"'&gt;RPA Developer Biography&lt;/a&gt;").replace("#Signature#","USN Operations")]</InArgument>
+              <InArgument x:TypeArguments="x:String">[bioBody.Replace("#partnerPointOfContact#",in_Name).replace("#Bio#","&lt;a href='"+bioUrl+"'&gt;"+positionName+"&lt;/a&gt;").replace("#Signature#","USN Operations")]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:SendOutlookMail Bcc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="[account]" Body="[emailBody]" Cc="[cc]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="497,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="True" IsDraft="False" SentOnBehalfOfName="USN Operations" Subject="[bioSubject]" To="[toEmail]">
+    <ui:SendOutlookMail Bcc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="[account]" Body="[emailBody]" Cc="[cc]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="497,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="True" IsDraft="False" Subject="[bioSubject]" To="[toEmail]">
       <ui:SendOutlookMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
       </ui:SendOutlookMail.Files>

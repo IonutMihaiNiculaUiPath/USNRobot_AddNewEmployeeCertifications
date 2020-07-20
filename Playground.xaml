@@ -87,6 +87,9 @@
         <InArgument x:TypeArguments="x:String" x:Key="in_Email">
           <Literal x:TypeArguments="x:String">ionut.nicula@uipath.com</Literal>
         </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Name">
+          <Literal x:TypeArguments="x:String">Nicula Ionut</Literal>
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>

@@ -1,0 +1,93 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="AddnewCandidatesinDBSendHackerranktest" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_Position" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_Candidates" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1199,653</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="32">
+      <x:String>System.Activities</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Add new Candidates in DB &amp; Send Hackerrank test" sap:VirtualizedContainerService.HintSize="426,488" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:DatabaseConnection" Name="myConnection" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:DatabaseConnect DatabaseConnection="[myConnection]" DisplayName="Connect" sap:VirtualizedContainerService.HintSize="384,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.SqlClient" ConnectionString="Data Source=proj-usn-sql-serv.database.windows.net;Initial Catalog=proj-usn-db;Persist Security Info=True;User ID=bogdan;Password=B3uqzDSy|V4.doY" />
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_Candidates]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="384,235" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="candidate" />
+          </ActivityAction.Argument>
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke processNewCandidate workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="processNewCandidate.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="myConnection">
+                <mva:VisualBasicValue x:TypeArguments="ui:DatabaseConnection" ExpressionText="myConnection" />
+              </InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+              </InArgument>
+              <InArgument x:TypeArguments="sd:DataRow" x:Key="candidate">
+                <mva:VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="candidate" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_EmployeePosition">
+                <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="in_Position" />
+              </InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+    </ui:ForEachRow>
+    <ui:DatabaseDisconnect DatabaseConnection="[myConnection]" DisplayName="Disconnect" sap:VirtualizedContainerService.HintSize="384,22" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
+  </Sequence>
+</Activity>
