@@ -365,7 +365,18 @@
           </If>
           <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SendCandidateBioEmail workflow" sap:VirtualizedContainerService.HintSize="651,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\SendCandidateBioEmail.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_Position">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_EmployeePosition.ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_EmployeeId">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_EmployeeId.ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Email">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Email" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>
