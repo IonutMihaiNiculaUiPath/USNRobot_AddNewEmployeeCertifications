@@ -36,7 +36,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="46">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="25">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -70,6 +70,7 @@
       <Variable x:TypeArguments="sd:DataTable" Name="devCandidates" />
       <Variable x:TypeArguments="sd:DataTable" Name="baCandidates" />
       <Variable x:TypeArguments="sd:DataTable" Name="saCandidates" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="partnersIdList" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -80,11 +81,24 @@
     <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="343,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetNewCandidates workflow" sap:VirtualizedContainerService.HintSize="343,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\GetNewCandidates.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_infraDt">[infraCandidates]</OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_rpaDevDt">[devCandidates]</OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_baDt">[baCandidates]</OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_saDt">[saCandidates]</OutArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+        </InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_infraDt">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="infraCandidates" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_rpaDevDt">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="devCandidates" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_baDt">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="baCandidates" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_saDt">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="saCandidates" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_partnerIds">
+          <mva:VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="partnersIdList" />
+        </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DEV AddnewCandidatesinDBSendHackerranktest" sap:VirtualizedContainerService.HintSize="343,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="AddnewCandidatesinDBSendHackerranktest.xaml">
