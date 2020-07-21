@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1154,4795</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1203,4294</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetNewCandidates_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -70,7 +70,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetNewCandidates" sap:VirtualizedContainerService.HintSize="1089,4630" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetNewCandidates" sap:VirtualizedContainerService.HintSize="844,4129" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="apiKey" />
       <Variable x:TypeArguments="x:String" Name="createdAt" />
@@ -92,8 +92,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1047,61" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="[&quot;Log LastCreatedAt asset: &quot; + in_Config(&quot;LastCreatedAt&quot;).ToString]" />
-    <Sequence DisplayName="Do JOTForm new Candidates request" sap:VirtualizedContainerService.HintSize="1047,1420" sap2010:WorkflowViewState.IdRef="Sequence_22">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="802,61" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="[&quot;Log LastCreatedAt asset: &quot; + in_Config(&quot;LastCreatedAt&quot;).ToString]" />
+    <Sequence DisplayName="Do JOTForm new Candidates request" sap:VirtualizedContainerService.HintSize="802,1420" sap2010:WorkflowViewState.IdRef="Sequence_22">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -164,8 +164,8 @@
       <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[myJsonObj]" JsonString="[myResult]" />
       <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_1" JsonArray="[myContentJsonArray]" JsonString="[myJsonObj(&quot;content&quot;).ToString]" />
     </Sequence>
-    <ui:BuildDataTable DataTable="[out_rpaDevDt]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="1047,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;partnerId&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;First_x0020_Name&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Last_x0020_Name&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Email_x0020_Address&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1047,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+    <ui:BuildDataTable DataTable="[out_rpaDevDt]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="802,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;partnerId&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;First_x0020_Name&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Last_x0020_Name&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Email_x0020_Address&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;hackerrankTestId&quot; type=&quot;xs:string&quot; default=&quot;&amp;quot;&amp;quot;&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="802,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -195,13 +195,13 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="[i]" DisplayName="For Each Form " sap:VirtualizedContainerService.HintSize="1047,2572" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[myContentJsonArray]">
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="[i]" DisplayName="For Each Form " sap:VirtualizedContainerService.HintSize="802,2071" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[myContentJsonArray]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1011,2438" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="766,1937" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="njl:JObject" Name="myContentObj" />
               <Variable x:TypeArguments="njl:JObject" Name="myAnswersObj" />
@@ -213,15 +213,15 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="969,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[myContentObj]" JsonString="[myContentJsonArray(i).ToString]" />
-            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="969,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[myAnswersObj]" JsonString="[myContentObj(&quot;answers&quot;).ToString]" />
-            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="[index]" DisplayName="For Each value in Form" sap:VirtualizedContainerService.HintSize="969,2146" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[myAnswersObj]">
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="724,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[myContentObj]" JsonString="[myContentJsonArray(i).ToString]" />
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="724,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[myAnswersObj]" JsonString="[myContentObj(&quot;answers&quot;).ToString]" />
+            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="[index]" DisplayName="For Each value in Form" sap:VirtualizedContainerService.HintSize="724,1645" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[myAnswersObj]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="933,2012" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="688,1511" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="njl:JObject" Name="myItemJsonObj" />
                       <Variable x:TypeArguments="njl:JArray" Name="rpaDevsCandidate" />
@@ -232,8 +232,8 @@
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="891,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_4" JsonObject="[myItemJsonObj]" JsonString="[item.ToString.Substring(item.ToString.IndexOf(&quot;:&quot;)+1)]" />
-                    <TryCatch DisplayName="Try Catch write to console value" sap:VirtualizedContainerService.HintSize="891,291" sap2010:WorkflowViewState.IdRef="TryCatch_6">
+                    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="646,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_4" JsonObject="[myItemJsonObj]" JsonString="[item.ToString.Substring(item.ToString.IndexOf(&quot;:&quot;)+1)]" />
+                    <TryCatch DisplayName="Try Catch write to console value" sap:VirtualizedContainerService.HintSize="646,291" sap2010:WorkflowViewState.IdRef="TryCatch_6">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -259,7 +259,7 @@
                         </Catch>
                       </TryCatch.Catches>
                     </TryCatch>
-                    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[myItemJsonObj(&quot;name&quot;).ToString]" sap:VirtualizedContainerService.HintSize="891,1398" sap2010:WorkflowViewState.IdRef="Switch`1_3">
+                    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[myItemJsonObj(&quot;name&quot;).ToString]" sap:VirtualizedContainerService.HintSize="646,897" sap2010:WorkflowViewState.IdRef="Switch`1_3">
                       <TryCatch x:Key="partnerId" DisplayName="TryCatch assign PID" sap:VirtualizedContainerService.HintSize="564,627" sap2010:WorkflowViewState.IdRef="TryCatch_8">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -313,7 +313,7 @@
                           </Catch>
                         </TryCatch.Catches>
                       </TryCatch>
-                      <Sequence x:Key="rpadevs" DisplayName="Go through each rpaDev" sap:VirtualizedContainerService.HintSize="851,1126" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                      <Sequence x:Key="rpadevs" DisplayName="Go through each rpaDev" sap:VirtualizedContainerService.HintSize="851,1086" sap2010:WorkflowViewState.IdRef="Sequence_6">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -398,7 +398,7 @@
                           </TryCatch.Catches>
                         </TryCatch>
                       </Sequence>
-                      <Sequence x:Key="ba" DisplayName="Go through each ba" sap:VirtualizedContainerService.HintSize="851,1126" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <Sequence x:Key="ba" DisplayName="Go through each ba" sap:VirtualizedContainerService.HintSize="851,1086" sap2010:WorkflowViewState.IdRef="Sequence_8">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="njl:JArray" Name="baCandidate" />
                         </Sequence.Variables>
@@ -480,7 +480,7 @@
                           </TryCatch.Catches>
                         </TryCatch>
                       </Sequence>
-                      <Sequence x:Key="infra" DisplayName="Go through each infra" sap:VirtualizedContainerService.HintSize="773,802" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <Sequence x:Key="infra" DisplayName="Go through each infra" sap:VirtualizedContainerService.HintSize="773,762" sap2010:WorkflowViewState.IdRef="Sequence_10">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="njl:JArray" Name="baCandidate" />
                           <Variable x:TypeArguments="njl:JArray" Name="infraCandidate" />
@@ -490,7 +490,7 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="731,710" sap2010:WorkflowViewState.IdRef="TryCatch_11">
+                        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="851,1086" sap2010:WorkflowViewState.IdRef="TryCatch_11">
                           <TryCatch.Try>
                             <Sequence sap:VirtualizedContainerService.HintSize="693,483" sap2010:WorkflowViewState.IdRef="Sequence_19">
                               <sap:WorkflowViewStateService.ViewState>
@@ -668,9 +668,9 @@
                         </TryCatch>
                       </Sequence>
                     </Switch>
-                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="891,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="646,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                       <ui:CommentOut.Body>
-                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="539,317" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="539,1802" sap2010:WorkflowViewState.IdRef="Sequence_4">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -683,7 +683,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <TryCatch x:Key="pname" sap:VirtualizedContainerService.HintSize="438,291" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                            <TryCatch x:Key="pname" sap:VirtualizedContainerService.HintSize="438,287" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -724,7 +724,7 @@
                                 </Catch>
                               </TryCatch.Catches>
                             </TryCatch>
-                            <TryCatch x:Key="name" sap:VirtualizedContainerService.HintSize="438,291" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                            <TryCatch x:Key="name" sap:VirtualizedContainerService.HintSize="438,287" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                               <TryCatch.Try>
                                 <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
                                   <Assign.To>
@@ -759,7 +759,7 @@
                                 </Catch>
                               </TryCatch.Catches>
                             </TryCatch>
-                            <TryCatch x:Key="geo" sap:VirtualizedContainerService.HintSize="438,291" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                            <TryCatch x:Key="geo" sap:VirtualizedContainerService.HintSize="438,287" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                               <TryCatch.Try>
                                 <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
                                   <Assign.To>
@@ -794,7 +794,7 @@
                                 </Catch>
                               </TryCatch.Catches>
                             </TryCatch>
-                            <TryCatch x:Key="pemail" sap:VirtualizedContainerService.HintSize="438,291" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                            <TryCatch x:Key="pemail" sap:VirtualizedContainerService.HintSize="438,287" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                               <TryCatch.Try>
                                 <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
                                   <Assign.To>
@@ -829,7 +829,7 @@
                                 </Catch>
                               </TryCatch.Catches>
                             </TryCatch>
-                            <TryCatch x:Key="emailuipath" sap:VirtualizedContainerService.HintSize="438,291" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                            <TryCatch x:Key="emailuipath" sap:VirtualizedContainerService.HintSize="438,287" sap2010:WorkflowViewState.IdRef="TryCatch_5">
                               <TryCatch.Try>
                                 <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
                                   <Assign.To>
@@ -894,7 +894,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <Sequence DisplayName="Write to console data" sap:VirtualizedContainerService.HintSize="1047,66" sap2010:WorkflowViewState.IdRef="Sequence_21">
+    <Sequence DisplayName="Write to console data" sap:VirtualizedContainerService.HintSize="802,66" sap2010:WorkflowViewState.IdRef="Sequence_21">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
