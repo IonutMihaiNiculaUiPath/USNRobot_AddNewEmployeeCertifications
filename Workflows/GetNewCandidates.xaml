@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1203,4294</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1119,4203</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetNewCandidates_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -42,7 +42,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="25">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -70,7 +70,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetNewCandidates" sap:VirtualizedContainerService.HintSize="844,4129" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetNewCandidates" sap:VirtualizedContainerService.HintSize="844,4038" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="apiKey" />
       <Variable x:TypeArguments="x:String" Name="createdAt" />
@@ -195,13 +195,13 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="[i]" DisplayName="For Each Form " sap:VirtualizedContainerService.HintSize="802,2071" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[myContentJsonArray]">
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="[i]" DisplayName="For Each Form " sap:VirtualizedContainerService.HintSize="802,1980" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[myContentJsonArray]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="766,1937" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="766,1846" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="njl:JObject" Name="myContentObj" />
               <Variable x:TypeArguments="njl:JObject" Name="myAnswersObj" />
@@ -215,13 +215,13 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="724,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[myContentObj]" JsonString="[myContentJsonArray(i).ToString]" />
             <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="724,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[myAnswersObj]" JsonString="[myContentObj(&quot;answers&quot;).ToString]" />
-            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="[index]" DisplayName="For Each value in Form" sap:VirtualizedContainerService.HintSize="724,1645" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[myAnswersObj]">
+            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="[index]" DisplayName="For Each value in Form" sap:VirtualizedContainerService.HintSize="724,1554" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[myAnswersObj]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="answer" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="688,1511" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="688,1420" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="njl:JObject" Name="myItemJsonObj" />
                       <Variable x:TypeArguments="njl:JArray" Name="rpaDevsCandidate" />
@@ -232,7 +232,7 @@
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="646,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_4" JsonObject="[myItemJsonObj]" JsonString="[item.ToString.Substring(item.ToString.IndexOf(&quot;:&quot;)+1)]" />
+                    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="646,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_4" JsonObject="[myItemJsonObj]" JsonString="[answer.ToString.Substring(answer.ToString.IndexOf(&quot;:&quot;)+1)]" />
                     <TryCatch DisplayName="Try Catch write to console value" sap:VirtualizedContainerService.HintSize="646,291" sap2010:WorkflowViewState.IdRef="TryCatch_6">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -260,7 +260,7 @@
                       </TryCatch.Catches>
                     </TryCatch>
                     <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[myItemJsonObj(&quot;name&quot;).ToString]" sap:VirtualizedContainerService.HintSize="646,897" sap2010:WorkflowViewState.IdRef="Switch`1_3">
-                      <TryCatch x:Key="partnerId" DisplayName="TryCatch assign PID" sap:VirtualizedContainerService.HintSize="564,627" sap2010:WorkflowViewState.IdRef="TryCatch_8">
+                      <TryCatch x:Key="partnerId" DisplayName="TryCatch assign PID" sap:VirtualizedContainerService.HintSize="1027,1027" sap2010:WorkflowViewState.IdRef="TryCatch_8">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -268,13 +268,13 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <TryCatch.Try>
-                          <Sequence sap:VirtualizedContainerService.HintSize="526,400" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                          <Sequence sap:VirtualizedContainerService.HintSize="989,800" sap2010:WorkflowViewState.IdRef="Sequence_23">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                            <Assign sap:VirtualizedContainerService.HintSize="947,60" sap2010:WorkflowViewState.IdRef="Assign_13">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:String">[pId]</OutArgument>
                               </Assign.To>
@@ -282,15 +282,68 @@
                                 <InArgument x:TypeArguments="x:String">[myItemJsonObj("answer").ToString.Trim]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <If Condition="[out_partnerIds.Contains(pid)]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_2">
-                              <If.Else>
-                                <AddToCollection x:TypeArguments="x:String" Collection="[out_partnerIds]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[pId]" />
-                              </If.Else>
-                            </If>
+                            <Sequence DisplayName="Verify status of Partner = 12" sap:VirtualizedContainerService.HintSize="947,608" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="x:Boolean" Name="match" />
+                              </Sequence.Variables>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke VerifyPartnerStatus workflow" sap:VirtualizedContainerService.HintSize="905,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Workflows\VerifyPartnerStatus.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_PartnerId">
+                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="pId" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_Status">
+                                    <Literal x:TypeArguments="x:String">12</Literal>
+                                  </InArgument>
+                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_CorrectStatus">
+                                    <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="match" />
+                                  </OutArgument>
+                                </ui:InvokeWorkflowFile.Arguments>
+                              </ui:InvokeWorkflowFile>
+                              <If Condition="[match]" sap:VirtualizedContainerService.HintSize="905,389" sap2010:WorkflowViewState.IdRef="If_7">
+                                <If.Then>
+                                  <If Condition="[out_partnerIds.Contains(pid)]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_2">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <If.Else>
+                                      <AddToCollection x:TypeArguments="x:String" Collection="[out_partnerIds]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[pId]" />
+                                    </If.Else>
+                                  </If>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="376,241" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InsertIntoRobotLogTable workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Workflows\InsertIntoRobotLogTable.xaml">
+                                      <ui:InvokeWorkflowFile.Arguments>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ID">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="pId" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_RobotLog">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Partner with ID: &quot; + pId + &quot; is not in Status 12&quot;" />
+                                        </InArgument>
+                                      </ui:InvokeWorkflowFile.Arguments>
+                                    </ui:InvokeWorkflowFile>
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Break_1" />
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
                           </Sequence>
                         </TryCatch.Try>
                         <TryCatch.Catches>
-                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="530,21" sap2010:WorkflowViewState.IdRef="Catch`1_8">
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="993,21" sap2010:WorkflowViewState.IdRef="Catch`1_8">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -668,212 +721,6 @@
                         </TryCatch>
                       </Sequence>
                     </Switch>
-                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="646,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-                      <ui:CommentOut.Body>
-                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="539,1802" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[myItemJsonObj(&quot;name&quot;).ToString]" sap:VirtualizedContainerService.HintSize="497,225" sap2010:WorkflowViewState.IdRef="Switch`1_1">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <TryCatch x:Key="pname" sap:VirtualizedContainerService.HintSize="438,287" sap2010:WorkflowViewState.IdRef="TryCatch_1">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <TryCatch.Try>
-                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="x:String">[pname]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">[myItemJsonObj("prettyFormat").ToString.Trim]</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                              </TryCatch.Try>
-                              <TryCatch.Catches>
-                                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <ActivityAction x:TypeArguments="s:Exception">
-                                    <ActivityAction.Argument>
-                                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                                    </ActivityAction.Argument>
-                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
-                                      <Assign.To>
-                                        <OutArgument x:TypeArguments="x:String">[pname]</OutArgument>
-                                      </Assign.To>
-                                      <Assign.Value>
-                                        <InArgument x:TypeArguments="x:String">NA</InArgument>
-                                      </Assign.Value>
-                                    </Assign>
-                                  </ActivityAction>
-                                </Catch>
-                              </TryCatch.Catches>
-                            </TryCatch>
-                            <TryCatch x:Key="name" sap:VirtualizedContainerService.HintSize="438,287" sap2010:WorkflowViewState.IdRef="TryCatch_2">
-                              <TryCatch.Try>
-                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="x:String">[name]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">[myItemJsonObj("answer").ToString]</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                              </TryCatch.Try>
-                              <TryCatch.Catches>
-                                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <ActivityAction x:TypeArguments="s:Exception">
-                                    <ActivityAction.Argument>
-                                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                                    </ActivityAction.Argument>
-                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
-                                      <Assign.To>
-                                        <OutArgument x:TypeArguments="x:String">[name]</OutArgument>
-                                      </Assign.To>
-                                      <Assign.Value>
-                                        <InArgument x:TypeArguments="x:String">NA</InArgument>
-                                      </Assign.Value>
-                                    </Assign>
-                                  </ActivityAction>
-                                </Catch>
-                              </TryCatch.Catches>
-                            </TryCatch>
-                            <TryCatch x:Key="geo" sap:VirtualizedContainerService.HintSize="438,287" sap2010:WorkflowViewState.IdRef="TryCatch_3">
-                              <TryCatch.Try>
-                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="x:String">[geo]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">[myItemJsonObj("answer").ToString]</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                              </TryCatch.Try>
-                              <TryCatch.Catches>
-                                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <ActivityAction x:TypeArguments="s:Exception">
-                                    <ActivityAction.Argument>
-                                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                                    </ActivityAction.Argument>
-                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
-                                      <Assign.To>
-                                        <OutArgument x:TypeArguments="x:String">[geo]</OutArgument>
-                                      </Assign.To>
-                                      <Assign.Value>
-                                        <InArgument x:TypeArguments="x:String">NA</InArgument>
-                                      </Assign.Value>
-                                    </Assign>
-                                  </ActivityAction>
-                                </Catch>
-                              </TryCatch.Catches>
-                            </TryCatch>
-                            <TryCatch x:Key="pemail" sap:VirtualizedContainerService.HintSize="438,287" sap2010:WorkflowViewState.IdRef="TryCatch_4">
-                              <TryCatch.Try>
-                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="x:String">[pemail]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">[myItemJsonObj("answer").ToString]</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                              </TryCatch.Try>
-                              <TryCatch.Catches>
-                                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_4">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <ActivityAction x:TypeArguments="s:Exception">
-                                    <ActivityAction.Argument>
-                                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                                    </ActivityAction.Argument>
-                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_9">
-                                      <Assign.To>
-                                        <OutArgument x:TypeArguments="x:String">[pemail]</OutArgument>
-                                      </Assign.To>
-                                      <Assign.Value>
-                                        <InArgument x:TypeArguments="x:String">NA</InArgument>
-                                      </Assign.Value>
-                                    </Assign>
-                                  </ActivityAction>
-                                </Catch>
-                              </TryCatch.Catches>
-                            </TryCatch>
-                            <TryCatch x:Key="emailuipath" sap:VirtualizedContainerService.HintSize="438,287" sap2010:WorkflowViewState.IdRef="TryCatch_5">
-                              <TryCatch.Try>
-                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="x:String">[emailUiPath]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">[myItemJsonObj("answer").ToString]</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                              </TryCatch.Try>
-                              <TryCatch.Catches>
-                                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_5">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <ActivityAction x:TypeArguments="s:Exception">
-                                    <ActivityAction.Argument>
-                                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                                    </ActivityAction.Argument>
-                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
-                                      <Assign.To>
-                                        <OutArgument x:TypeArguments="x:String">[pemail]</OutArgument>
-                                      </Assign.To>
-                                      <Assign.Value>
-                                        <InArgument x:TypeArguments="x:String">NA</InArgument>
-                                      </Assign.Value>
-                                    </Assign>
-                                  </ActivityAction>
-                                </Catch>
-                              </TryCatch.Catches>
-                            </TryCatch>
-                          </Switch>
-                        </Sequence>
-                      </ui:CommentOut.Body>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </ui:CommentOut>
                   </Sequence>
                 </ActivityAction>
               </ui:ForEach.Body>

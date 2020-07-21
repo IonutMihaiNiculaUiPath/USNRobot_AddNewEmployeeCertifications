@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1203,795</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1119,740</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>InsertNewCandidate_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -66,7 +66,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="InsertNewCandidate" sap:VirtualizedContainerService.HintSize="376,630" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="InsertNewCandidate" sap:VirtualizedContainerService.HintSize="376,535" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="employeeDt" />
     </Sequence.Variables>
@@ -101,11 +101,7 @@
         <InArgument x:TypeArguments="x:String" x:Key="in_RobotLog">
           <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Inserted Employee ID: &quot; + out_EmployeeId + &quot;; Status: 1&quot;" />
         </InArgument>
-        <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">
-          <mva:VisualBasicValue x:TypeArguments="ui:DatabaseConnection" ExpressionText="in_Connection" />
-        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:Comment sap:VirtualizedContainerService.HintSize="334,55" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// To add to RobotLog" />
   </Sequence>
 </Activity>
