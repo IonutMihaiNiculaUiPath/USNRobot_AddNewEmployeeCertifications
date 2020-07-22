@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1119,740</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1196,700</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>InsertNewCandidate_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -100,6 +100,9 @@
         </InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_RobotLog">
           <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Inserted Employee ID: &quot; + out_EmployeeId + &quot;; Status: 1&quot;" />
+        </InArgument>
+        <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">
+          <mva:VisualBasicValue x:TypeArguments="ui:DatabaseConnection" ExpressionText="in_Connection" />
         </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>

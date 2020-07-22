@@ -1,10 +1,14 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="AddnewCandidatesinDBSendHackerranktest" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="AddnewCandidatesinDBSendHackerranktest" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_Position" Type="InArgument(x:Int32)" />
     <x:Property Name="in_Candidates" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_Connection" Type="InArgument(ui:DatabaseConnection)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1196,653</sap:VirtualizedContainerService.HintSize>
+  <this:AddnewCandidatesinDBSendHackerranktest.in_Connection>
+    <InArgument x:TypeArguments="ui:DatabaseConnection" />
+  </this:AddnewCandidatesinDBSendHackerranktest.in_Connection>
+  <sap:VirtualizedContainerService.HintSize>1196,645</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -50,19 +54,14 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Add new Candidates in DB &amp; Send Hackerrank test" sap:VirtualizedContainerService.HintSize="426,488" sap2010:WorkflowViewState.IdRef="Sequence_3">
-    <Sequence.Variables>
-      <Variable x:TypeArguments="ui:DatabaseConnection" Name="myConnection" />
-    </Sequence.Variables>
+  <Sequence DisplayName="Add new Candidates in DB &amp; Send Hackerrank test" sap:VirtualizedContainerService.HintSize="426,327" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:DatabaseConnect DatabaseConnection="[myConnection]" DisplayName="Connect" sap:VirtualizedContainerService.HintSize="384,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.SqlClient" ConnectionString="[in_Config(&quot;dbConnection&quot;).ToString]" />
     <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_Candidates]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="384,235" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
@@ -73,13 +72,12 @@
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
               <InArgument x:TypeArguments="x:Int32" x:Key="in_EmployeePosition">[in_Position]</InArgument>
-              <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">[myConnection]</InArgument>
+              <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">[in_Connection]</InArgument>
               <InArgument x:TypeArguments="sd:DataRow" x:Key="in_Candidate">[candidate]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
-    <ui:DatabaseDisconnect DatabaseConnection="[myConnection]" DisplayName="Disconnect" sap:VirtualizedContainerService.HintSize="384,22" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
   </Sequence>
 </Activity>
