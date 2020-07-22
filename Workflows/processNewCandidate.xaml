@@ -5,7 +5,7 @@
     <x:Property Name="in_Connection" Type="InArgument(ui:DatabaseConnection)" />
     <x:Property Name="in_Candidate" Type="InArgument(sd:DataRow)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1203,846</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1196,846</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="18">
@@ -50,8 +50,8 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,681" sap2010:WorkflowViewState.IdRef="Sequence_5">
@@ -86,33 +86,15 @@
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SendHackerrankTest for RPA Dev" sap:VirtualizedContainerService.HintSize="484,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\SendHackerrankTest.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_EmployeeId">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="candidateId" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:Int32" x:Key="in_EmployeePosition">
-          <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="in_EmployeePosition" />
-        </InArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_FullName">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Candidate(&quot;First Name&quot;).ToString + &quot; &quot; + in_Candidate(&quot;Last Name&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Email">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Candidate(&quot;Email Address&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">
-          <mva:VisualBasicValue x:TypeArguments="ui:DatabaseConnection" ExpressionText="in_Connection" />
-        </InArgument>
-        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_Inserted">
-          <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="inserted" />
-        </OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="out_TestId">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="testId" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_PartnerId">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Candidate(&quot;partnerId&quot;).ToString" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_EmployeeId">[candidateId]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_EmployeePosition">[in_EmployeePosition]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_FullName">[in_Candidate("First Name").ToString + " " + in_Candidate("Last Name").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Email">[in_Candidate("Email Address").ToString]</InArgument>
+        <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">[in_Connection]</InArgument>
+        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_Inserted">[inserted]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="out_TestId">[testId]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_PartnerId">[in_Candidate("partnerId").ToString]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_1">
@@ -127,11 +109,21 @@
       <If.Then>
         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SendCandidateBioEmail workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Workflows\SendCandidateBioEmail.xaml">
           <ui:InvokeWorkflowFile.Arguments>
-            <InArgument x:TypeArguments="x:String" x:Key="in_Position">[in_EmployeePosition.ToString]</InArgument>
-            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_EmployeeId">[candidateId]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_Email">[in_Candidate("Email Address").ToString]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_Name">[in_Candidate("First Name").ToString + " " + in_Candidate("Last Name").ToString]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_Position">
+              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_EmployeePosition.ToString" />
+            </InArgument>
+            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+              <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_EmployeeId">
+              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="candidateId" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_Email">
+              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Candidate(&quot;Email Address&quot;).ToString" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_Name">
+              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Candidate(&quot;First Name&quot;).ToString + &quot; &quot; + in_Candidate(&quot;Last Name&quot;).ToString" />
+            </InArgument>
           </ui:InvokeWorkflowFile.Arguments>
         </ui:InvokeWorkflowFile>
       </If.Then>

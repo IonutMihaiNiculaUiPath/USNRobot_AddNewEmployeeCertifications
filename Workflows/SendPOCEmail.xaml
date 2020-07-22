@@ -6,12 +6,11 @@
     <x:Property Name="in_saCandidates" Type="InArgument(sd:DataTable)" />
     <x:Property Name="in_baCanddates" Type="InArgument(sd:DataTable)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="in_Connection" Type="InArgument(ui:DatabaseConnection)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1203,1779</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1196,1327</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SendPOCEmail_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -63,10 +62,9 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SendPOCEmail" sap:VirtualizedContainerService.HintSize="380,1173" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendPOCEmail" sap:VirtualizedContainerService.HintSize="380,1162" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="toEmail" />
       <Variable x:TypeArguments="x:String" Name="account" />
@@ -95,15 +93,15 @@
         <InArgument x:TypeArguments="x:String">[in_Config("CandidateBioEmailSubject").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="338,62" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="### SEND POC EMAIL ###" />
-    <Sequence DisplayName="Devs" sap:VirtualizedContainerService.HintSize="338,68" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="### SEND POC EMAIL ###" />
+    <Sequence DisplayName="Devs" sap:VirtualizedContainerService.HintSize="338,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_devCandidates]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="354,301" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_devCandidates]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="354,300" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
@@ -144,7 +142,7 @@
         </Assign.Value>
       </Assign>
     </Sequence>
-    <Sequence DisplayName="Infra" sap:VirtualizedContainerService.HintSize="338,68" sap2010:WorkflowViewState.IdRef="Sequence_7">
+    <Sequence DisplayName="Infra" sap:VirtualizedContainerService.HintSize="338,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -198,7 +196,7 @@
         </Assign.Value>
       </Assign>
     </Sequence>
-    <Sequence DisplayName="SA" sap:VirtualizedContainerService.HintSize="338,68" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <Sequence DisplayName="SA" sap:VirtualizedContainerService.HintSize="338,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -252,7 +250,7 @@
         </Assign.Value>
       </Assign>
     </Sequence>
-    <Sequence DisplayName="BA" sap:VirtualizedContainerService.HintSize="338,68" sap2010:WorkflowViewState.IdRef="Sequence_9">
+    <Sequence DisplayName="BA" sap:VirtualizedContainerService.HintSize="338,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -336,7 +334,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="[account]" Body="[emailBody]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="338,147" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="True" IsDraft="False" Subject="[subject]" To="[toEmail]">
+    <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="[account]" Body="[emailBody]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="338,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="True" IsDraft="False" Subject="[subject]" To="[toEmail]">
       <ui:SendOutlookMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
       </ui:SendOutlookMail.Files>
