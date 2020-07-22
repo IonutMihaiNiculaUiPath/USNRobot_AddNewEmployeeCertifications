@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1196,2036</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1256,2036</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -84,27 +84,13 @@
     <ui:DatabaseConnect DatabaseConnection="[dbConnection]" DisplayName="Connect" sap:VirtualizedContainerService.HintSize="421,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.SqlClient" ConnectionString="[in_Config(&quot;dbConnection&quot;).ToString]" />
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetNewCandidates workflow" sap:VirtualizedContainerService.HintSize="421,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\GetNewCandidates.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-        </InArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_infraDt">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="infraCandidates" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_rpaDevDt">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="devCandidates" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_baDt">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="baCandidates" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_saDt">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="saCandidates" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_partnerIds">
-          <mva:VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="partnersIdList" />
-        </OutArgument>
-        <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">
-          <mva:VisualBasicValue x:TypeArguments="ui:DatabaseConnection" ExpressionText="dbConnection" />
-        </InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_infraDt">[infraCandidates]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_rpaDevDt">[devCandidates]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_baDt">[baCandidates]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_saDt">[saCandidates]</OutArgument>
+        <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_partnerIds">[partnersIdList]</OutArgument>
+        <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">[dbConnection]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <Sequence DisplayName="AddnewCandidatesinDBSendHackerranktest" sap:VirtualizedContainerService.HintSize="421,560" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -116,66 +102,34 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="DEV" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Workflows/AddnewCandidatesinDBSendHackerranktest.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:Int32" x:Key="in_Position">
-            <Literal x:TypeArguments="x:Int32" Value="4" />
-          </InArgument>
-          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Candidates">
-            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="devCandidates" />
-          </InArgument>
-          <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">
-            <mva:VisualBasicValue x:TypeArguments="ui:DatabaseConnection" ExpressionText="dbConnection" />
-          </InArgument>
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="in_Position">4</InArgument>
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Candidates">[devCandidates]</InArgument>
+          <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">[dbConnection]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="INFRA" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Workflows/AddnewCandidatesinDBSendHackerranktest.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:Int32" x:Key="in_Position">
-            <Literal x:TypeArguments="x:Int32" Value="7" />
-          </InArgument>
-          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Candidates">
-            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="infraCandidates" />
-          </InArgument>
-          <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">
-            <mva:VisualBasicValue x:TypeArguments="ui:DatabaseConnection" ExpressionText="dbConnection" />
-          </InArgument>
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="in_Position">7</InArgument>
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Candidates">[infraCandidates]</InArgument>
+          <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">[dbConnection]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="SA" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Workflows/AddnewCandidatesinDBSendHackerranktest.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:Int32" x:Key="in_Position">
-            <Literal x:TypeArguments="x:Int32" Value="5" />
-          </InArgument>
-          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Candidates">
-            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="saCandidates" />
-          </InArgument>
-          <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">
-            <mva:VisualBasicValue x:TypeArguments="ui:DatabaseConnection" ExpressionText="dbConnection" />
-          </InArgument>
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="in_Position">5</InArgument>
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Candidates">[saCandidates]</InArgument>
+          <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">[dbConnection]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="BA" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Workflows/AddnewCandidatesinDBSendHackerranktest.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:Int32" x:Key="in_Position">
-            <Literal x:TypeArguments="x:Int32" Value="6" />
-          </InArgument>
-          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Candidates">
-            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="baCandidates" />
-          </InArgument>
-          <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">
-            <mva:VisualBasicValue x:TypeArguments="ui:DatabaseConnection" ExpressionText="dbConnection" />
-          </InArgument>
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="in_Position">6</InArgument>
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Candidates">[baCandidates]</InArgument>
+          <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">[dbConnection]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>
@@ -292,6 +246,9 @@
                 </InArgument>
                 <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
                   <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+                </InArgument>
+                <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">
+                  <mva:VisualBasicValue x:TypeArguments="ui:DatabaseConnection" ExpressionText="dbConnection" />
                 </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>

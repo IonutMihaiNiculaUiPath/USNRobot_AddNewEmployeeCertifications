@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1396,5176</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>944,3617</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetNewCandidates_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -68,10 +68,9 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetNewCandidates" sap:VirtualizedContainerService.HintSize="1406,5011" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetNewCandidates" sap:VirtualizedContainerService.HintSize="695,3452" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="apiKey" />
       <Variable x:TypeArguments="x:String" Name="createdAt" />
@@ -93,8 +92,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1364,61" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="[&quot;Log LastCreatedAt asset: &quot; + in_Config(&quot;LastCreatedAt&quot;).ToString]" />
-    <Sequence DisplayName="Do JOTForm new Candidates request" sap:VirtualizedContainerService.HintSize="1364,1420" sap2010:WorkflowViewState.IdRef="Sequence_22">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="653,62" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="[&quot;Log LastCreatedAt asset: &quot; + in_Config(&quot;LastCreatedAt&quot;).ToString]" />
+    <Sequence DisplayName="Do JOTForm new Candidates request" sap:VirtualizedContainerService.HintSize="653,1426" sap2010:WorkflowViewState.IdRef="Sequence_22">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -139,8 +138,8 @@
           <InArgument x:TypeArguments="scg:List(x:String)">[new List(Of String)]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:PathExists DisplayName="Path Exists" Exists="[myFileExists]" sap:VirtualizedContainerService.HintSize="484,89" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="getsubmissions.ps1" PathType="File" />
-      <If Condition="[myFileExists]" DisplayName="If myFileExists" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_1">
+      <ui:PathExists DisplayName="Path Exists" Exists="[myFileExists]" sap:VirtualizedContainerService.HintSize="484,90" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="getsubmissions.ps1" PathType="File" />
+      <If Condition="[myFileExists]" DisplayName="If myFileExists" sap:VirtualizedContainerService.HintSize="484,210" sap2010:WorkflowViewState.IdRef="If_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -151,8 +150,8 @@
           <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delete_1" Path="getsubmissions.ps1" />
         </If.Then>
       </If>
-      <ui:ReadTextFile Content="[myPSTemplate]" DisplayName="Read Text File" FileName="powershell.txt" sap:VirtualizedContainerService.HintSize="484,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-      <ui:WriteTextFile DisplayName="Write Text File" FileName="getsubmissions.ps1" sap:VirtualizedContainerService.HintSize="484,132" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[myPSTemplate.replace(&quot;#apiKey#&quot;,apiKey).replace(&quot;#createdAt#&quot;,createdAt).replace(&quot;#formID#&quot;,formID)]" />
+      <ui:ReadTextFile Content="[myPSTemplate]" DisplayName="Read Text File" FileName="powershell.txt" sap:VirtualizedContainerService.HintSize="484,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+      <ui:WriteTextFile DisplayName="Write Text File" FileName="getsubmissions.ps1" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[myPSTemplate.replace(&quot;#apiKey#&quot;,apiKey).replace(&quot;#createdAt#&quot;,createdAt).replace(&quot;#formID#&quot;,formID)]" />
       <ui:RunPowerShellScript x:TypeArguments="x:String" DisplayName="Run power shell script" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="RunPowerShellScript`1_1" Output="[myPSContent]" ScriptPath="getsubmissions.ps1" />
       <Assign DisplayName="Assign myResult" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
@@ -165,8 +164,8 @@
       <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[myJsonObj]" JsonString="[myResult]" />
       <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_1" JsonArray="[myContentJsonArray]" JsonString="[myJsonObj(&quot;content&quot;).ToString]" />
     </Sequence>
-    <ui:BuildDataTable DataTable="[out_rpaDevDt]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="1364,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;partnerId&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;First_x0020_Name&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Last_x0020_Name&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Email_x0020_Address&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;hackerrankTestId&quot; type=&quot;xs:string&quot; default=&quot;&amp;quot;&amp;quot;&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;validEmail&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1364,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+    <ui:BuildDataTable DataTable="[out_rpaDevDt]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="653,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;partnerId&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;First_x0020_Name&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Last_x0020_Name&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Email_x0020_Address&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;hackerrankTestId&quot; type=&quot;xs:string&quot; default=&quot;&amp;quot;&amp;quot;&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;validEmail&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;emailMessage&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="653,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -196,13 +195,13 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="[i]" DisplayName="For Each Form " sap:VirtualizedContainerService.HintSize="1364,2721" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[myContentJsonArray]">
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="[i]" DisplayName="For Each Form " sap:VirtualizedContainerService.HintSize="653,1323" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[myContentJsonArray]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1328,2587" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="617,1188" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="njl:JObject" Name="myContentObj" />
               <Variable x:TypeArguments="njl:JObject" Name="myAnswersObj" />
@@ -214,15 +213,15 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="1286,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[myContentObj]" JsonString="[myContentJsonArray(i).ToString]" />
-            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="1286,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[myAnswersObj]" JsonString="[myContentObj(&quot;answers&quot;).ToString]" />
-            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="[index]" DisplayName="For Each value in Form" sap:VirtualizedContainerService.HintSize="1286,2295" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[myAnswersObj]">
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="575,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[myContentObj]" JsonString="[myContentJsonArray(i).ToString]" />
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="575,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[myAnswersObj]" JsonString="[myContentObj(&quot;answers&quot;).ToString]" />
+            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="[index]" DisplayName="For Each value in Form" sap:VirtualizedContainerService.HintSize="575,896" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[myAnswersObj]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="answer" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1250,2161" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="539,761" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="njl:JObject" Name="myItemJsonObj" />
                       <Variable x:TypeArguments="njl:JArray" Name="rpaDevsCandidate" />
@@ -233,8 +232,8 @@
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="1208,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_4" JsonObject="[myItemJsonObj]" JsonString="[answer.ToString.Substring(answer.ToString.IndexOf(&quot;:&quot;)+1)]" />
-                    <TryCatch DisplayName="Try Catch write to console value" sap:VirtualizedContainerService.HintSize="1208,291" sap2010:WorkflowViewState.IdRef="TryCatch_6">
+                    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="497,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_4" JsonObject="[myItemJsonObj]" JsonString="[answer.ToString.Substring(answer.ToString.IndexOf(&quot;:&quot;)+1)]" />
+                    <TryCatch DisplayName="Try Catch write to console value" sap:VirtualizedContainerService.HintSize="497,296" sap2010:WorkflowViewState.IdRef="TryCatch_6">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -245,7 +244,7 @@
                         <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,64" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;JsonObj[name]: &quot; + myItemJsonObj(&quot;name&quot;).ToString + Environment.NewLine +&#xA;&quot;JsonObj[answer]: &quot; + myItemJsonObj(&quot;answer&quot;).ToString]" />
                       </TryCatch.Try>
                       <TryCatch.Catches>
-                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_6">
+                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_6">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -260,7 +259,7 @@
                         </Catch>
                       </TryCatch.Catches>
                     </TryCatch>
-                    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[myItemJsonObj(&quot;name&quot;).ToString]" sap:VirtualizedContainerService.HintSize="1208,1638" sap2010:WorkflowViewState.IdRef="Switch`1_3">
+                    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[myItemJsonObj(&quot;name&quot;).ToString]" sap:VirtualizedContainerService.HintSize="497,233" sap2010:WorkflowViewState.IdRef="Switch`1_3">
                       <TryCatch x:Key="partnerId" DisplayName="TryCatch assign PID" sap:VirtualizedContainerService.HintSize="1027,1027" sap2010:WorkflowViewState.IdRef="TryCatch_8">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -358,7 +357,7 @@
                           </Catch>
                         </TryCatch.Catches>
                       </TryCatch>
-                      <Sequence x:Key="rpadevs" DisplayName="Go through each rpaDev" sap:VirtualizedContainerService.HintSize="1168,1366" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                      <Sequence x:Key="rpadevs" DisplayName="Go through each rpaDev" sap:VirtualizedContainerService.HintSize="1168,1326" sap2010:WorkflowViewState.IdRef="Sequence_6">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -416,21 +415,11 @@
                                                   </sap:WorkflowViewStateService.ViewState>
                                                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ExtractCandidateFromJObject workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Workflows\ExtractCandidateFromJObject.xaml">
                                                     <ui:InvokeWorkflowFile.Arguments>
-                                                      <OutArgument x:TypeArguments="x:String" x:Key="outEmail">
-                                                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="rpaEmail" />
-                                                      </OutArgument>
-                                                      <OutArgument x:TypeArguments="x:String" x:Key="outLastName">
-                                                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="rpaLastName" />
-                                                      </OutArgument>
-                                                      <OutArgument x:TypeArguments="x:String" x:Key="outFirstName">
-                                                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="rpaFirstName" />
-                                                      </OutArgument>
-                                                      <InArgument x:TypeArguments="njl:JObject" x:Key="inCandidateJObject">
-                                                        <mva:VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="dev" />
-                                                      </InArgument>
-                                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="outIsEmailValid">
-                                                        <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="emailValid" />
-                                                      </OutArgument>
+                                                      <OutArgument x:TypeArguments="x:String" x:Key="outEmail">[rpaEmail]</OutArgument>
+                                                      <OutArgument x:TypeArguments="x:String" x:Key="outLastName">[rpaLastName]</OutArgument>
+                                                      <OutArgument x:TypeArguments="x:String" x:Key="outFirstName">[rpaFirstName]</OutArgument>
+                                                      <InArgument x:TypeArguments="njl:JObject" x:Key="inCandidateJObject">[dev]</InArgument>
+                                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="outIsEmailValid">[emailValid]</OutArgument>
                                                     </ui:InvokeWorkflowFile.Arguments>
                                                   </ui:InvokeWorkflowFile>
                                                   <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{pId, rpaFirstName, rpaLastName, rpaEmail,&quot;&quot;, emailValid}]" DataTable="[out_rpaDevDt]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
@@ -470,7 +459,7 @@
                           </TryCatch.Catches>
                         </TryCatch>
                       </Sequence>
-                      <Sequence x:Key="ba" DisplayName="Go through each ba" sap:VirtualizedContainerService.HintSize="1168,1366" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <Sequence x:Key="ba" DisplayName="Go through each ba" sap:VirtualizedContainerService.HintSize="1168,1326" sap2010:WorkflowViewState.IdRef="Sequence_8">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="njl:JArray" Name="baCandidate" />
                         </Sequence.Variables>
@@ -525,21 +514,11 @@
                                                   </sap:WorkflowViewStateService.ViewState>
                                                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ExtractCandidateFromJObject workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Workflows\ExtractCandidateFromJObject.xaml">
                                                     <ui:InvokeWorkflowFile.Arguments>
-                                                      <OutArgument x:TypeArguments="x:String" x:Key="outEmail">
-                                                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="email" />
-                                                      </OutArgument>
-                                                      <OutArgument x:TypeArguments="x:String" x:Key="outLastName">
-                                                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="lastName" />
-                                                      </OutArgument>
-                                                      <OutArgument x:TypeArguments="x:String" x:Key="outFirstName">
-                                                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="firstName" />
-                                                      </OutArgument>
-                                                      <InArgument x:TypeArguments="njl:JObject" x:Key="inCandidateJObject">
-                                                        <mva:VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="ba" />
-                                                      </InArgument>
-                                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="outIsEmailValid">
-                                                        <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="emailValid" />
-                                                      </OutArgument>
+                                                      <OutArgument x:TypeArguments="x:String" x:Key="outEmail">[email]</OutArgument>
+                                                      <OutArgument x:TypeArguments="x:String" x:Key="outLastName">[lastName]</OutArgument>
+                                                      <OutArgument x:TypeArguments="x:String" x:Key="outFirstName">[firstName]</OutArgument>
+                                                      <InArgument x:TypeArguments="njl:JObject" x:Key="inCandidateJObject">[ba]</InArgument>
+                                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="outIsEmailValid">[emailValid]</OutArgument>
                                                     </ui:InvokeWorkflowFile.Arguments>
                                                   </ui:InvokeWorkflowFile>
                                                   <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{pId, firstName, lastName, email, &quot;&quot;, emailValid}]" DataTable="[out_baDt]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
@@ -579,7 +558,7 @@
                           </TryCatch.Catches>
                         </TryCatch>
                       </Sequence>
-                      <Sequence x:Key="infra" DisplayName="Go through each infra" sap:VirtualizedContainerService.HintSize="1210,1458" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <Sequence x:Key="infra" DisplayName="Go through each infra" sap:VirtualizedContainerService.HintSize="1210,1418" sap2010:WorkflowViewState.IdRef="Sequence_10">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="njl:JArray" Name="baCandidate" />
                           <Variable x:TypeArguments="njl:JArray" Name="infraCandidate" />
@@ -646,21 +625,11 @@
                                                     </sap:WorkflowViewStateService.ViewState>
                                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ExtractCandidateFromJObject workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\ExtractCandidateFromJObject.xaml">
                                                       <ui:InvokeWorkflowFile.Arguments>
-                                                        <OutArgument x:TypeArguments="x:String" x:Key="outEmail">
-                                                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="email" />
-                                                        </OutArgument>
-                                                        <OutArgument x:TypeArguments="x:String" x:Key="outLastName">
-                                                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="lastName" />
-                                                        </OutArgument>
-                                                        <OutArgument x:TypeArguments="x:String" x:Key="outFirstName">
-                                                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="firstName" />
-                                                        </OutArgument>
-                                                        <InArgument x:TypeArguments="njl:JObject" x:Key="inCandidateJObject">
-                                                          <mva:VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="infra" />
-                                                        </InArgument>
-                                                        <OutArgument x:TypeArguments="x:Boolean" x:Key="outIsEmailValid">
-                                                          <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="emailValid" />
-                                                        </OutArgument>
+                                                        <OutArgument x:TypeArguments="x:String" x:Key="outEmail">[email]</OutArgument>
+                                                        <OutArgument x:TypeArguments="x:String" x:Key="outLastName">[lastName]</OutArgument>
+                                                        <OutArgument x:TypeArguments="x:String" x:Key="outFirstName">[firstName]</OutArgument>
+                                                        <InArgument x:TypeArguments="njl:JObject" x:Key="inCandidateJObject">[infra]</InArgument>
+                                                        <OutArgument x:TypeArguments="x:Boolean" x:Key="outIsEmailValid">[emailValid]</OutArgument>
                                                       </ui:InvokeWorkflowFile.Arguments>
                                                     </ui:InvokeWorkflowFile>
                                                     <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{pId, firstName, lastName, email,&quot;&quot;,emailValid}]" DataTable="[out_infraDt]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
@@ -707,7 +676,7 @@
                           </TryCatch.Catches>
                         </TryCatch>
                       </Sequence>
-                      <Sequence x:Key="sa" DisplayName="Go through each sa" sap:VirtualizedContainerService.HintSize="1168,1366" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                      <Sequence x:Key="sa" DisplayName="Go through each sa" sap:VirtualizedContainerService.HintSize="1168,1326" sap2010:WorkflowViewState.IdRef="Sequence_12">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="njl:JArray" Name="baCandidate" />
                           <Variable x:TypeArguments="njl:JArray" Name="infraCandidate" />
@@ -766,21 +735,11 @@
                                                   </sap:WorkflowViewStateService.ViewState>
                                                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ExtractCandidateFromJObject workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\ExtractCandidateFromJObject.xaml">
                                                     <ui:InvokeWorkflowFile.Arguments>
-                                                      <OutArgument x:TypeArguments="x:String" x:Key="outEmail">
-                                                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="email" />
-                                                      </OutArgument>
-                                                      <OutArgument x:TypeArguments="x:String" x:Key="outLastName">
-                                                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="lastName" />
-                                                      </OutArgument>
-                                                      <OutArgument x:TypeArguments="x:String" x:Key="outFirstName">
-                                                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="firstName" />
-                                                      </OutArgument>
-                                                      <InArgument x:TypeArguments="njl:JObject" x:Key="inCandidateJObject">
-                                                        <mva:VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="sa" />
-                                                      </InArgument>
-                                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="outIsEmailValid">
-                                                        <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="emailValid" />
-                                                      </OutArgument>
+                                                      <OutArgument x:TypeArguments="x:String" x:Key="outEmail">[email]</OutArgument>
+                                                      <OutArgument x:TypeArguments="x:String" x:Key="outLastName">[lastName]</OutArgument>
+                                                      <OutArgument x:TypeArguments="x:String" x:Key="outFirstName">[firstName]</OutArgument>
+                                                      <InArgument x:TypeArguments="njl:JObject" x:Key="inCandidateJObject">[sa]</InArgument>
+                                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="outIsEmailValid">[emailValid]</OutArgument>
                                                     </ui:InvokeWorkflowFile.Arguments>
                                                   </ui:InvokeWorkflowFile>
                                                   <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{pId, firstName, lastName, email, &quot;&quot;, emailValid}]" DataTable="[out_saDt]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_4" />
@@ -847,19 +806,8 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1364,192" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_34">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:SetAsset TimeoutMS="{x:Null}" AssetName="USNAddNewCandidate_LastCreatedAt" DisplayName="Set Asset" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[System.DateTime.Now.ToString(&quot;yyyy-MM-dd hh:mm:ss&quot;)]" />
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
-    <Sequence DisplayName="Write to console data" sap:VirtualizedContainerService.HintSize="1364,66" sap2010:WorkflowViewState.IdRef="Sequence_21">
+    <ui:SetAsset TimeoutMS="{x:Null}" AssetName="USNAddNewCandidate_LastCreatedAt" DisplayName="Set Asset" sap:VirtualizedContainerService.HintSize="653,22" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[System.DateTime.Now.ToString(&quot;yyyy-MM-dd hh:mm:ss&quot;)]" />
+    <Sequence DisplayName="Write to console data" sap:VirtualizedContainerService.HintSize="653,68" sap2010:WorkflowViewState.IdRef="Sequence_21">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>

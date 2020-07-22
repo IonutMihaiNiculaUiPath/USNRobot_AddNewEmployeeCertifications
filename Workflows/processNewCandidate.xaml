@@ -5,7 +5,7 @@
     <x:Property Name="in_Connection" Type="InArgument(ui:DatabaseConnection)" />
     <x:Property Name="in_Candidate" Type="InArgument(sd:DataRow)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1208,1441</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1671,2144</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="18">
@@ -55,137 +55,213 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1218,1276" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1681,1979" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="candidateId" />
       <Variable x:TypeArguments="x:Boolean" Name="inserted" />
       <Variable x:TypeArguments="x:String" Name="testId" />
       <Variable x:TypeArguments="x:Boolean" Name="allowed" />
+      <Variable x:TypeArguments="x:String" Name="employeePosition" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke VerifyEmployeeIsAllowedToCandidate workflow" sap:VirtualizedContainerService.HintSize="1176,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Workflows\VerifyEmployeeIsAllowedToCandidate.xaml">
+    <Switch x:TypeArguments="x:Int32" DisplayName="Switch" Expression="[in_EmployeePosition]" sap:VirtualizedContainerService.HintSize="1639,316" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <Assign x:Key="4" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[employeePosition]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">RPA Dev</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="5" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[employeePosition]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">SA</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="6" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[employeePosition]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">BA</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="7" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[employeePosition]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">Infra</InArgument>
+        </Assign.Value>
+      </Assign>
+    </Switch>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke VerifyEmployeeIsAllowedToCandidate workflow" sap:VirtualizedContainerService.HintSize="1639,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Workflows\VerifyEmployeeIsAllowedToCandidate.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">
-          <mva:VisualBasicValue x:TypeArguments="ui:DatabaseConnection" ExpressionText="in_Connection" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_EmployeeEmail">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Candidate(&quot;Email Address&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_PartnerId">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Candidate(&quot;partnerId&quot;).ToString" />
-        </InArgument>
-        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_Status">
-          <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="allowed" />
-        </OutArgument>
+        <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">[in_Connection]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_EmployeeEmail">[in_Candidate("Email Address").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_PartnerId">[in_Candidate("partnerId").ToString]</InArgument>
+        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_Status">[allowed]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1176,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Allowed: &quot; + allowed.ToString + Environment.NewLine + Boolean.Parse(in_Candidate(&quot;validEmail&quot;).ToString ).ToString]" />
-    <If Condition="[Boolean.Parse(in_Candidate(&quot;validEmail&quot;).ToString ) and allowed]" sap:VirtualizedContainerService.HintSize="1176,956" sap2010:WorkflowViewState.IdRef="If_2">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1639,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Allowed: &quot; + allowed.ToString + Environment.NewLine + Boolean.Parse(in_Candidate(&quot;validEmail&quot;).ToString ).ToString]" />
+    <If Condition="[Boolean.Parse(in_Candidate(&quot;validEmail&quot;).ToString )]" sap:VirtualizedContainerService.HintSize="1639,1302" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="755,808" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence sap:VirtualizedContainerService.HintSize="1218,1152" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InsertNewCandidate RPA Dev" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\InsertNewCandidate.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">
-                <mva:VisualBasicValue x:TypeArguments="ui:DatabaseConnection" ExpressionText="in_Connection" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Name">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Candidate(&quot;First Name&quot;).ToString + &quot; &quot;+ in_Candidate(&quot;Last Name&quot;).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Email">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Candidate(&quot;Email Address&quot;).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_PartnerId">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Candidate(&quot;partnerId&quot;).ToString" />
-              </InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_EmployeeId">
-                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="candidateId" />
-              </OutArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-          </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SendHackerrankTest for RPA Dev" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\SendHackerrankTest.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_EmployeeId">[candidateId]</InArgument>
-              <InArgument x:TypeArguments="x:Int32" x:Key="in_EmployeePosition">[in_EmployeePosition]</InArgument>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_FullName">[in_Candidate("First Name").ToString + " " + in_Candidate("Last Name").ToString]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Email">[in_Candidate("Email Address").ToString]</InArgument>
-              <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">[in_Connection]</InArgument>
-              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_Inserted">[inserted]</OutArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="out_TestId">[testId]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_PartnerId">[in_Candidate("partnerId").ToString]</InArgument>
-              <InArgument x:TypeArguments="sd:DataRow" x:Key="in_Candidate">[in_Candidate]</InArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-          </ui:InvokeWorkflowFile>
-          <If Condition="[inserted]" DisplayName="If inserat hackerrank test id modificam status" sap:VirtualizedContainerService.HintSize="713,235" sap2010:WorkflowViewState.IdRef="If_3">
+          <If Condition="[allowed]" sap:VirtualizedContainerService.HintSize="1176,1060" sap2010:WorkflowViewState.IdRef="If_4">
             <If.Then>
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke UpdateEmployeeStatus workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Workflows\UpdateEmployeeStatus.xaml">
-                <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">[in_Connection]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_Status">3</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_EmployeeId">[candidateId]</InArgument>
-                </ui:InvokeWorkflowFile.Arguments>
-              </ui:InvokeWorkflowFile>
+              <Sequence sap:VirtualizedContainerService.HintSize="755,910" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InsertNewCandidate RPA Dev" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\InsertNewCandidate.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">[in_Connection]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Name">[in_Candidate("First Name").ToString + " "+ in_Candidate("Last Name").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Email">[in_Candidate("Email Address").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_PartnerId">[in_Candidate("partnerId").ToString]</InArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="out_EmployeeId">[candidateId]</OutArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SendHackerrankTest for RPA Dev" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\SendHackerrankTest.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_EmployeeId">[candidateId]</InArgument>
+                    <InArgument x:TypeArguments="x:Int32" x:Key="in_EmployeePosition">[in_EmployeePosition]</InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_FullName">[in_Candidate("First Name").ToString + " " + in_Candidate("Last Name").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Email">[in_Candidate("Email Address").ToString]</InArgument>
+                    <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">[in_Connection]</InArgument>
+                    <OutArgument x:TypeArguments="x:Boolean" x:Key="out_Inserted">[inserted]</OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="out_TestId">[testId]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_PartnerId">[in_Candidate("partnerId").ToString]</InArgument>
+                    <InArgument x:TypeArguments="sd:DataRow" x:Key="in_Candidate">[in_Candidate]</InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+                <If Condition="[inserted]" DisplayName="If inserat hackerrank test id modificam status" sap:VirtualizedContainerService.HintSize="713,237" sap2010:WorkflowViewState.IdRef="If_3">
+                  <If.Then>
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke UpdateEmployeeStatus workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Workflows\UpdateEmployeeStatus.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">[in_Connection]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Status">3</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_EmployeeId">[candidateId]</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                  </If.Then>
+                  <If.Else>
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke UpdateEmployeeStatus workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Workflows\UpdateEmployeeStatus.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">[in_Connection]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Status">2</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_EmployeeId">[candidateId]</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                  </If.Else>
+                </If>
+                <Assign sap:VirtualizedContainerService.HintSize="713,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Object">[in_Candidate("hackerrankTestId")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Object">[testId]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SendCandidateBioEmail workflow" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Workflows\SendCandidateBioEmail.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Position">[in_EmployeePosition.ToString]</InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_EmployeeId">[candidateId]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Email">[in_Candidate("Email Address").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Name">[in_Candidate("First Name").ToString + " " + in_Candidate("Last Name").ToString]</InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+                <Assign sap:VirtualizedContainerService.HintSize="713,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Object">[in_Candidate("emailMessage")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[employeePosition + "- " + in_Candidate("First Name").ToString + " "+ in_Candidate("Last Name").ToString + " added to be certified." + " Email: " + in_Candidate("Email Address").ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
             </If.Then>
             <If.Else>
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke UpdateEmployeeStatus workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Workflows\UpdateEmployeeStatus.xaml">
-                <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">[in_Connection]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_Status">2</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_EmployeeId">[candidateId]</InArgument>
-                </ui:InvokeWorkflowFile.Arguments>
-              </ui:InvokeWorkflowFile>
+              <Sequence sap:VirtualizedContainerService.HintSize="376,412" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Warn" Message="[&quot;The Candidate is already assigned to a Certification &quot;+  in_Candidate(&quot;Email Address&quot;).ToString  + &quot; Position: &quot; + in_EmployeePosition.ToString]" />
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InsertIntoRobotLogTable workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Workflows\InsertIntoRobotLogTable.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_ID">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Candidate(&quot;partnerId&quot;).ToString" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_RobotLog">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;The Candidate is already assigned to a Certification &quot;+  in_Candidate(&quot;Email Address&quot;).ToString  + &quot; Position: &quot; + in_EmployeePosition.ToString" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">
+                      <mva:VisualBasicValue x:TypeArguments="ui:DatabaseConnection" ExpressionText="in_Connection" />
+                    </InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Object">[in_Candidate("emailMessage")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[employeePosition + "- " + in_Candidate("First Name").ToString + " "+ in_Candidate("Last Name").ToString + " is already in the process of certifying." + " Email: " + in_Candidate("Email Address").ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
             </If.Else>
           </If>
-          <Assign sap:VirtualizedContainerService.HintSize="713,60" sap2010:WorkflowViewState.IdRef="Assign_1">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:Object">[in_Candidate("hackerrankTestId")]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:Object">[testId]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SendCandidateBioEmail workflow" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Workflows\SendCandidateBioEmail.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Position">[in_EmployeePosition.ToString]</InArgument>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_EmployeeId">[candidateId]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Email">[in_Candidate("Email Address").ToString]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Name">[in_Candidate("First Name").ToString + " " + in_Candidate("Last Name").ToString]</InArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-          </ui:InvokeWorkflowFile>
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,310" sap2010:WorkflowViewState.IdRef="Sequence_7">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,412" sap2010:WorkflowViewState.IdRef="Sequence_7">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;The Candidate email is not valid or Candidate is already assigned to a Certification &quot;+  in_Candidate(&quot;Email Address&quot;).ToString  + &quot; Position: &quot; + in_EmployeePosition.ToString]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;The Candidate email is not valid &quot;+  in_Candidate(&quot;Email Address&quot;).ToString  + &quot; Position: &quot; + in_EmployeePosition.ToString]" />
           <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InsertIntoRobotLogTable workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Workflows\InsertIntoRobotLogTable.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="in_ID">
                 <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Candidate(&quot;partnerId&quot;).ToString" />
               </InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_RobotLog">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;The Candidate email is not valid or Candidate is already assigned to a Certification &quot;+  in_Candidate(&quot;Email Address&quot;).ToString  + &quot; Position: &quot; + in_EmployeePosition.ToString" />
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;The Candidate email is not valid &quot;+  in_Candidate(&quot;Email Address&quot;).ToString  + &quot; Position: &quot; + in_EmployeePosition.ToString" />
               </InArgument>
               <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connection">
                 <mva:VisualBasicValue x:TypeArguments="ui:DatabaseConnection" ExpressionText="in_Connection" />
               </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
+          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Object">[in_Candidate("emailMessage")]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[employeePosition + "- " + in_Candidate("First Name").ToString + " "+ in_Candidate("Last Name").ToString + " email is not valid." + " Email: " + in_Candidate("Email Address").ToString]</InArgument>
+            </Assign.Value>
+          </Assign>
         </Sequence>
       </If.Else>
     </If>
