@@ -271,7 +271,7 @@
                     <OutArgument x:TypeArguments="x:Object">[in_Candidate("emailMessage")]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[employeePosition + "- " + in_Candidate("First Name").ToString + " "+ in_Candidate("Last Name").ToString + " is already in the process of certifying." + " Email: " + in_Candidate("Email Address").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[employeePosition + "- " + in_Candidate("First Name").ToString + " "+ in_Candidate("Last Name").ToString + " is already certified for this position or is in the process of certifying on another role." + " Email: " + in_Candidate("Email Address").ToString]</InArgument>
                   </Assign.Value>
                 </Assign>
               </Sequence>
