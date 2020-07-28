@@ -4,14 +4,17 @@
     <x:Property Name="in_EmployeeEmail" Type="InArgument(x:String)" />
     <x:Property Name="in_PartnerId" Type="InArgument(x:String)" />
     <x:Property Name="out_Status" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="out_Update" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="out_EmployeeId" Type="OutArgument(x:String)" />
+    <x:Property Name="in_EmployeePosition" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1142,741</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1299,1601</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>VerifyEmployeeStatus_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="44">
+    <scg:List x:TypeArguments="x:String" Capacity="24">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -63,34 +66,101 @@
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="VerifyEmployeeExists" sap:VirtualizedContainerService.HintSize="918,576" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="VerifyEmployeeExists" sap:VirtualizedContainerService.HintSize="1309,1436" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="myDT" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtHRPosition" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[myDT]" DisplayName="Execute INSERT Query" ExistingDbConnection="[in_Connection]" sap:VirtualizedContainerService.HintSize="876,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="[&quot;Select * from partneremployee where partner_id = &quot; + in_PartnerId + &quot; and email = '&quot; + in_EmployeeEmail +&quot;'&quot;]">
+    <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[myDT]" DisplayName="Execute INSERT Query" ExistingDbConnection="[in_Connection]" sap:VirtualizedContainerService.HintSize="1267,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="[&quot;Select * from partneremployee where partner_id = &quot; + in_PartnerId + &quot; and email = '&quot; + in_EmployeeEmail +&quot;'&quot;]">
       <ui:ExecuteQuery.Parameters>
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:ExecuteQuery.Parameters>
     </ui:ExecuteQuery>
-    <If Condition="[myDT.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="876,356" sap2010:WorkflowViewState.IdRef="If_1">
+    <Assign sap:VirtualizedContainerService.HintSize="1267,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Boolean">[out_Update]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="1267,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_EmployeeId]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">N/A</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[myDT.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1267,1016" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <If Condition="[myDT.Rows(0).Item(&quot;employeeStatus&quot;).ToString = &quot;5&quot; or myDT.Rows(0).Item(&quot;employeeStatus&quot;).ToString = &quot;0&quot; or myDT.Rows(0).Item(&quot;employeeStatus&quot;).ToString = &quot;6&quot;]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_2">
+        <If Condition="[myDT.Rows(0).Item(&quot;employeeStatus&quot;).ToString = &quot;5&quot; or myDT.Rows(0).Item(&quot;employeeStatus&quot;).ToString = &quot;0&quot; or myDT.Rows(0).Item(&quot;employeeStatus&quot;).ToString = &quot;6&quot;]" sap:VirtualizedContainerService.HintSize="960,868" sap2010:WorkflowViewState.IdRef="If_2">
           <If.Then>
-            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:Boolean">[out_Status]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:Boolean">True</InArgument>
-              </Assign.Value>
-            </Assign>
+            <Sequence sap:VirtualizedContainerService.HintSize="653,720" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="611,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_EmployeeId]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[myDT.Rows(0).Item("id").ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[dtHRPosition]" DisplayName="Execute Query" ExistingDbConnection="[in_Connection]" sap:VirtualizedContainerService.HintSize="611,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_3" Sql="[&quot;Select * from hackerank where partneremployee_id = &quot; + out_EmployeeId + &quot; and position_ID = &quot; + in_EmployeePosition]">
+                <ui:ExecuteQuery.Parameters>
+                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                </ui:ExecuteQuery.Parameters>
+              </ui:ExecuteQuery>
+              <If Condition="[dtHRPosition.Rows.Count &gt; 0]" DisplayName="If applying for same position twice" sap:VirtualizedContainerService.HintSize="611,400" sap2010:WorkflowViewState.IdRef="If_3">
+                <If.Then>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[out_Status]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[out_Status]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[out_Update]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
           </If.Then>
           <If.Else>
             <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
